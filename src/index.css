@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Outfit:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-neon-red: #ff0040;
+  --color-neon-red-dark: #cc0033;
+  --color-dark-bg: #0a0a0a;
+  --color-dark-surface: #141414;
+}
+
+body {
+  background-color: #1a0f12;
+  color: #eeeeee;
+  background-image: 
+    linear-gradient(rgba(255,100,50,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,100,50,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bg-neon-red { background-color: var(--color-neon-red); }
+.text-neon-red { color: var(--color-neon-red); }
+.border-neon-red { border-color: var(--color-neon-red); }
+
+.glow-red {
+  box-shadow: 0 0 30px rgba(255, 0, 64, 0.3);
+}
+.glow-text-red {
+  text-shadow: 0 0 15px rgba(255, 0, 64, 0.5);
+}
+.neon-border {
+  border: 1px solid rgba(255, 0, 64, 0.4);
+  box-shadow: inset 0 0 10px rgba(255, 0, 64, 0.1), 0 0 10px rgba(255, 0, 64, 0.2);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+}

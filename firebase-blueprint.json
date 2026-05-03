@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "user": {
+      "title": "User",
+      "description": "User profile data",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "member"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "name", "role", "createdAt"]
+    },
+    "member": {
+      "title": "Member",
+      "description": "Anggota data",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "nim": { "type": "string" },
+        "status": { "type": "string", "enum": ["aktif", "pasif", "alumni"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "status"]
+    },
+    "event": {
+      "title": "Event",
+      "description": "Acara data",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "location": { "type": "string" },
+        "status": { "type": "string", "enum": ["upcoming", "ongoing", "completed"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "date", "status", "createdAt"]
+    },
+    "transaction": {
+      "title": "Transaction",
+      "description": "Keuangan transaction data",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["income", "expense"] },
+        "amount": { "type": "number" },
+        "description": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["type", "amount", "description", "date", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": { "$ref": "#/entities/user" },
+      "description": "Stores user profiles"
+    },
+    "members/{memberId}": {
+      "schema": { "$ref": "#/entities/member" },
+      "description": "Stores members"
+    },
+    "events/{eventId}": {
+      "schema": { "$ref": "#/entities/event" },
+      "description": "Stores events"
+    },
+    "transactions/{transactionId}": {
+      "schema": { "$ref": "#/entities/transaction" },
+      "description": "Stores transactions"
+    }
+  }
+}
